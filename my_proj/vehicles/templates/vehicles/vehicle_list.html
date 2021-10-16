@@ -1,0 +1,32 @@
+<html>
+<body style="font-size:30px;">
+<center>
+<h1>Vehicles</h1>
+
+<table border="1" style="align:center;color:green" cellpadding="10px" border="5px">
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+    {% for vehicle in object_list %}
+    <tr>
+    <td>{{ vehicle.name }}</td>
+    <td>{{ vehicle.description }}</td>
+    <td><a href="{% url "vehicle_view" vehicle.id %}">View</a></td>
+    <td><a href="{% url "vehicle_edit" vehicle.id %}">Edit</a></td>
+    <td><a href="{% url "vehicle_delete" vehicle.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+<br><br><br>
+<a href="{% url "vehicle_new" %}">New</a>
+</center>
+</body>
+</html>
